@@ -36,10 +36,9 @@ document.addEventListener('keypress', function (event) {
 });
 
 
-
 function onKeyClick(value) {
     let operators = ['+', '-', '*', '%', '/'];
-
+    console.log(value);
     if (isNumber(value))
         onNumberClick(value);
     else if (value === '.')
@@ -105,8 +104,8 @@ function onOperatorClick(value) {
 }
 
 function calculateResult() {
-    var error = false;
     b = parseFloat(calculatorDisplay.innerHTML);
+    debugger;
     if (a == null || b == null) return;
     switch (operator) {
         case '+':
@@ -125,15 +124,15 @@ function calculateResult() {
             c = a % b;
             break;
         default:
-            error = true;
+            console.log("error");
     }
-    if (!error) {
-        if (Math.round(c) !== c) {
-            c = c.toFixed(2);
-        }
-        calculatorDisplay.innerHTML = c;
-        createHistory(a + ' ' + operator + ' ' + b + ' = ' + c);
+
+    if (Math.round(c) !== c) {
+        c = c.toFixed(2);
     }
+    calculatorDisplay.innerHTML = c;
+    createHistory(a + ' ' + operator + ' ' + b + ' = ' + c);
+    a = b = c = operator = null;
 }
 
 function changeSign() {
