@@ -69,6 +69,7 @@ function onKeyPress(value) {
 
 function resetAll() {
     a = b = c = null;
+    operatorClicked = false;
     calculatorDisplay.innerHTML = 0;
     while (historyDisplay.firstChild) {
         historyDisplay.removeChild(historyDisplay.firstChild);
