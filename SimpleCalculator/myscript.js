@@ -38,7 +38,6 @@ document.addEventListener('keypress', function (event) {
 
 function onKeyClick(value) {
     let operators = ['+', '-', '*', '%', '/'];
-    console.log(value);
     if (isNumber(value))
         onNumberClick(value);
     else if (value === '.')
@@ -105,7 +104,6 @@ function onOperatorClick(value) {
 
 function calculateResult() {
     b = parseFloat(calculatorDisplay.innerHTML);
-    debugger;
     if (a == null || b == null) return;
     switch (operator) {
         case '+':
@@ -133,6 +131,7 @@ function calculateResult() {
     calculatorDisplay.innerHTML = c;
     createHistory(a + ' ' + operator + ' ' + b + ' = ' + c);
     a = b = c = operator = null;
+    operatorClicked = true;
 }
 
 function changeSign() {

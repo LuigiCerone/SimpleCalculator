@@ -1,0 +1,46 @@
+START
+
+state_0:
+    input = number then
+        insert the number into the calculator's screen
+        go to state_0
+    input = operator then
+        save the number in the calculator's screen
+        clear screen
+        save the operator
+        go to state_1
+
+state_1:
+    input = number then
+        insert the number into the calculator's screen
+        go to state_1
+    input = operator then
+        save the number in the calculator's screen
+        calculate the result
+        print the entry in the operator history
+        update the operator
+        clear screen
+        go to state_1
+    input = '=' then
+        save the number in the calculator's screen
+        calculate the result
+        print the entry in the operator history
+        go to state_2
+    input = 'AC' then
+        clear all the data
+        clear screen
+        go to state_0
+
+state_2:
+    input = number then
+        clear all the data
+        go to state_0
+    input = operator then
+        update the operator
+        go to state_1
+    inout = 'AC' then
+        clear all the data
+        clear screen
+        go to state_0
+
+END
